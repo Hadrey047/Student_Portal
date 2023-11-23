@@ -3,14 +3,16 @@
 from faker import Faker
 
 from app import app
-from models import db, Student, Department
+from models import db, Student, Department, Faculty
+
+fake = Faker()
 
 with app.app_context():
-    
-    fake = Faker()
-
     Student.query.delete()
-
+    Department.query.delete()
+    Faculty.query.delete()
+    
+    
     students = []
     for i in range(50):
         student = Student(
@@ -25,8 +27,6 @@ with app.app_context():
     db.session.add_all(students)
     db.session.commit()
     
-    
-    Department.query.delete()
 
     departments = []
     for i in range(50):
@@ -38,6 +38,18 @@ with app.app_context():
         departments.append(department)
 
     db.session.add_all(departments)
+    
+    
+    faculties = []
+    for i in range(50):
+        faculty = Faculty(
+            school = fake.name(),
+            student_id = 'students.id',
+            departments_id = 'departments.id'
+        )
+        faculties.append(faculty)
+
+    db.session.add_all(faculties)
     db.session.commit()
  
 
