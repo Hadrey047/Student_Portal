@@ -14,8 +14,11 @@ importlib-metadata = "6.0.0"
 importlib-resources = "5.10.0"
 ipdb = "0.13.9"
 marshmallow = "3.18.0"
-sqlalchemy-serializer = "1.4.1"
+sqlalchemy-serializer = "*"
 pipfile = "*"
+wtforms = "*"
+flask-wtf = "*"
+flask-cors = "*"
 
 [dev-packages]
 

@@ -35,7 +35,7 @@ class Department(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     department_name = db.Column(db.String(40))
     level = db.Column(db.String(10))
-    department_section = db.Column(db.String())
+    department_section = db.Column(db.String(30))
     
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())

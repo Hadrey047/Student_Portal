@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal <i class="fab fa-portal-enter"></i></title>
+</head>
+<body>
+    <p>
+        {%if name%}
+        The name of the student is {{name}}
+        You can go ahead to update if there is an error:
+        {%else%}
+        please enter your name:
+        {% endif %}  
+    </p>
+
+    <form method="POST">
+        {{form.hidden_tag()}}
+        {{form.name.label}}  {{form.name}} <br>
+        {{form.address.label}}  {{form.address}} <br>
+        {{form.phone_number.label}}  {{form.phone_number}} <br>
+        {{form.sex.label}}  {{form.sex}} <br>
+        {{form.matric_number.label}}  {{form.matric_number}} <br>
+
+        {{form.submit}}
+    </form>
+</body>
+</html>
